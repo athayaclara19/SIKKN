@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimbingan Teknis</title>
+    <link rel="stylesheet" href="stylesheets/lihatbimbingan.css">
+    
+    
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<body>
+    <header>
+        <div class="container">
+            <div class="logo unand.png">
+                <img src="/tbkel6pweb/views/images/LOGO UNAND.png" alt="Logo Sistem Informasi KKN">
+              
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">SISTEM INFORMASI KKN</a></li>
+                    <li><a href="#">Kelompok Saya</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Lokasi KKN</a></li>
+                    <li><a href="/views/faq.ejs"><i class=""></i>&nbsp;FAQ</a></li>
+                </ul>
+            </div>
+            <div class="icons">
+                <i class="fas fa-bell" onclick="location.href='/views/notifikasi.ejs'"></i>
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <aside>
+            <ul>
+                <li><a href="/tbkel6pweb/views/home.ejs"><i class="fas fa-home"></i>&nbsp;Home</a></li>
+                <li><a href="/tbkel6pweb/views/daftarkkn.ejs"><i class="fas fa-list-ul"></i>&nbsp;Pendaftaran KKN</a></li>
+                <li><a href="/tbkel6pweb/views/verifikasi.ejs"><i class="fas fa-list-ul"></i>&nbsp;Verifikasi</a></li>
+                <li><a href="/tbkel6pweb/views/bagikelompok.ejs"><i class="fas fa-user"></i>&nbsp;Pembagian Kelompok KKN</a></li>
+                <li><a href="#"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Bimbingan Teknis</a></li>
+                <li><a href="#"><i class="fas fa-clipboard-check"></i>&nbsp;Monitoring & Evaluasi</a></li>
+                <li><a href="#"><i class="fas fa-book"></i>&nbsp;Jurnal Kegiatan</a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i>&nbsp;Pelaporan</a></li>
+                <li><a href="#"><i class="fas fa-user-tie"></i>&nbsp;Penilaian</a></li>
+                <li><a href="#"><i class="fas fa-box"></i>&nbsp; Arsip</a></li>
+                <li><a href="#"><i class="fas fa-comment"></i>&nbsp; Forum Diskusi</a></li>
+            </ul>
+        </aside>
+
+    
+
+        <div id="modal-bimbingan" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <div class="card">
+                    <img src="/tbkel6pweb/views/images/timeline mei.jpg" alt="Metode dan Teknik Pelaksanaan KKN">
+                    <div class="card-content">
+                        <h2>Metode dan teknik pelaksanaan KKN</h2>
+                        <p>Kuliah Kerja Nyata (KKN) merupakan kegiatan akademik yang mengintegrasikan pendidikan, penelitian, dan pengabdian kepada masyarakat. Bimbingan teknis ini bertujuan untuk membekali mahasiswa dengan metode dan teknik pelaksanaan KKN yang efektif dan efisien.</p>
+                        <p>Tujuan KKN
+                            1. Pengembangan Kompetensi: Meningkatkan kemampuan akademik dan profesional mahasiswa.
+                            2. Pengabdian Kepada Masyarakat: Memberikan kontribusi nyata kepada masyarakat dalam bentuk penerapan ilmu pengetahuan.
+                            3. Pemberdayaan Masyarakat: Membantu masyarakat untuk meningkatkan kualitas hidup melalui berbagai program pemberdayaan.
+                            </p>
+                        <p>Metode Pelaksanaan KKN
+                            1. Metode Partisipatif
+                            
+                            Melibatkan masyarakat secara aktif dalam perencanaan, pelaksanaan, dan evaluasi program KKN.
+                            Teknik: Focus Group Discussion (FGD), survei lapangan, wawancara mendalam.
+                            
+                            2. Metode Pendidikan dan Pelatihan
+                            
+                            Memberikan edukasi kepada masyarakat melalui pelatihan dan workshop.
+                            Teknik: Penyuluhan, seminar, pelatihan praktis.
+                            
+                            3. Metode Penelitian Tindakan (Action Research)
+                            
+                            Melakukan penelitian untuk memecahkan masalah nyata di masyarakat dengan tindakan langsung.
+                            Teknik: Observasi partisipatif, eksperimen lapangan, dokumentasi.
+                            
+                            4. Metode Pengembangan Komunitas
+                            
+                            Mengembangkan kapasitas komunitas dengan membentuk kelompok-kelompok kerja.
+                            Teknik: Pembentukan kelompok, pendampingan, mentoring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function openModal() {
+                document.getElementById("modal-bimbingan").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("modal-bimbingan").style.display = "none";
+            }
+        </script>
+
+    </main>
+
+    <script src="javascripts/bimbingan.js"></script>
+</body>
+</html>

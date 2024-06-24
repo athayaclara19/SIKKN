@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="img/unand.png">
+  <style>
+    .profile-header {
+      background: linear-gradient(to right, #4f46e5, #3b82f6);
+      color: white;
+    }
+    .profile-content {
+      background: #f9fafb;
+      border-radius: 0.5rem;
+    }
+    .profile-section {
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .download-link:hover {
+      color: #6366f1;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navigation -->
+<nav class="bg-gray-800 text-white px-4 py-4 flex items-center fixed top-0 left-0 right-0 z-50">
+  <div class="flex items-center">
+    <img src="img/unand.png" alt="Logo" class="h-10 w-10 mr-3">
+    <a href="#" class="text-xl font-bold">Sistem Informasi KKN</a>
+  </div>
+  <div class="flex items-center space-x-6 px-10">
+    <a href="#" class="hover:text-gray-400 px-5">Kelompok Saya</a>
+    <a href="#" class="hover:text-gray-400 px-5">Galeri</a>
+    <a href="#" class="hover:text-gray-400 px-5">Lokasi KKN</a>
+    <a href="#" class="hover:text-gray-400 px-5">FAQ</a>
+  </div>
+  <div class="flex items-center ml-auto space-x-5"> 
+    <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+      <span class="sr-only">View notifications</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+      </svg>
+    </button>
+    <div class="relative ml-5 " onclick="openMenu()" onmouseleave="closeMenu()">
+      <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button " aria-expanded="false" aria-haspopup="true" >
+        <span class="sr-only">Open user menu</span>
+        <img class="h-8 w-8 rounded-full" src="img/genkai.jpg" alt="">
+      </button>
+      <div id="user-menu" class="absolute right-0 z-10 mt-0 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transform opacity-0 scale-95 transition ease-in duration-75" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
+        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300" role="menuitem">Your Profile</a>
+        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300" role="menuitem">Settings</a>
+        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300" role="menuitem">Sign out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <!-- Sidebar and Main Content -->
+  <div class="flex">
+    <!-- Sidebar -->
+    <div class="w-72 bg-gray-800 text-white px-7 py-3 flex flex-col fixed top-0 bottom-0">
+      <ul class="flex flex-col space-y-2 mt-16">
+        <li>
+          <a href="/" class="flex items-center bg-gray-700 text-white py-3 px-2 rounded-lg mt-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7 2 2L3 12z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12l-2-2m0 0l-7-7-7 7-2 2l7 7z" />
+            </svg>
+            <span>Beranda</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center hover:text-gray-400 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v10M5 12h14" />
+            </svg>
+            <span>Pendaftaran KKN</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center hover:text-gray-400 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h8M8 12h8m-6 4H5a2 2 0 00-2 2v3h14v-3a2 2 0 00-2-2H8m6 4v1H5a2 2 0 01-2-2v-3m11 5h6v-3a2 2 0 00-2-2h-2a2 2 0 00-2 2v3m2-7h2a2 2 0 00-2-2h-2a2 2 0 00-2 2h2z" />
+            </svg>
+            <span>Pembagian Kelompok</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center hover:text-gray-400 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5v14" />
+            </svg>
+            <span>Bimbingan Teknis</span>
+          </a>
+        </li>
+        <li class="relative group">
+          <a href="#" class="flex items-center hover:text-gray-400 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+            </svg>
+            <span>Monitoring & Evaluasi</span>
+          </a>
+          <div class="absolute left-52 top-0 mt-0 w-48 origin-top-right rounded-md bg-gray-700 py-1 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-600">Monitoring</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-600">Evaluasi</a>
+          </div>
+        </li>
+        <li>
+          <a href="#" class="flex items-center hover:text-gray-400 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m4-4H8" />
+            </svg>
+            <span>Jurnal Kegiatan</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center hover:text-gray-400 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m-4-8h8" />
+            </svg>
+            <span>Pelaporan & Penilaian</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center hover:text-gray-400 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m-4-8h8" />
+            </svg>
+            <span>Arsip</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center hover:text-gray-400 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m-4-8h8" />
+            </svg>
+            <span>Forum Diskusi</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="text-teal-800">
+      LOGIN ADMIN BERHASIL!
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('user-menu');
+      if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+        setTimeout(() => {
+          menu.classList.remove('opacity-0', 'scale-95');
+          menu.classList.add('opacity-100', 'scale-100');
+        }, 10);
+      } else {
+        menu.classList.remove('opacity-100', 'scale-100');
+        menu.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+          menu.style.display = 'none';
+        }, 75);
+      }
+    }
+
+    function openMenu() {
+      const menu = document.getElementById('user-menu');
+      menu.style.display = 'block';
+      setTimeout(() => {
+        menu.classList.remove('opacity-0', 'scale-95');
+        menu.classList.add('opacity-100', 'scale-100');
+      }, 10);
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('user-menu');
+      menu.classList.remove('opacity-100', 'scale-100');
+      menu.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => {
+        menu.style.display = 'none';
+      }, 75);
+    }
+  </script>
+
+</body>
+</html>

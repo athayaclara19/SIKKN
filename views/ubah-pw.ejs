@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="/img/unand.png">
+    <style>
+        .show-password-checkbox {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-3xl font-semibold mb-6 text-center text-gray-700">Change Password</h1>
+        <form id="changePasswordForm" action="/change-password" method="POST" class="space-y-6">
+            <div class="form-group relative">
+                <label for="email" class="block text-gray-600 font-medium">Email:</label>
+                <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="form-group relative">
+                <label for="oldPassword" class="block text-gray-600 font-medium">Current Password:</label>
+                <input type="password" id="oldPassword" name="oldPassword" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="checkbox" id="showOldPassword" class="show-password-checkbox"> 
+                <label for="showOldPassword" class="show-password-label">Show Password</label>
+            </div>
+            <div class="form-group relative">
+                <label for="newPassword" class="block text-gray-600 font-medium">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="checkbox" id="showNewPassword" class="show-password-checkbox"> 
+                <label for="showNewPassword" class="show-password-label">Show Password</label>
+            </div>
+            <div class="form-group relative">
+                <label for="confirmPassword" class="block text-gray-600 font-medium">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="checkbox" id="showConfirmPassword" class="show-password-checkbox"> 
+                <label for="showConfirmPassword" class="show-password-label">Show Password</label>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Change Password</button>
+        </form>
+        <div id="errorMessage" class="error-message text-red-500 mt-4" style="display: none;"></div>
+        <div id="successMessage" class="success-message text-green-500 mt-4" style="display: none;"></div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const showPasswordCheckbox = document.getElementById(show${inputId.charAt(0).toUpperCase() + inputId.slice(1)});
+            
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+
+        // Menangani pengiriman form
+        document.getElementById('changePasswordForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Menghentikan pengiriman form
+
+            // Mengambil data form
+            const email = document.getElementById('email').value;
+            const oldPassword = document.getElementById('oldPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validasi password baru dan konfirmasi password
+            if (newPassword !== confirmPassword) {
+                document.getElementById('errorMessage').innerText = "New password and confirm password do not match";
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+                return;
+            }
+
+            // Mengirim data form ke server menggunakan fetch API
+            const response = await fetch('/change-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, oldPassword, newPassword })
+            });
+
+            // Mengambil respons dari server dalam bentuk JSON
+            const data = await response.json();
+
+            // Memeriksa status respons
+            if (!response.ok) {
+                // Jika respons tidak berhasil, menampilkan pesan kesalahan
+                document.getElementById('errorMessage').innerText = data.message;
+                document.getElementById('errorMessage').style.display = 'block'; // Menampilkan pesan kesalahan
+                document.getElementById('successMessage').style.display = 'none';
+            } else {
+                // Jika respons berhasil, mengarahkan ke halaman login dengan pesan sukses
+                window.location.href = '/login?message=Password%20successfully%20changed';
+            }
+        });
+    </script>
+</body>
+</html>
